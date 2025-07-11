@@ -3,6 +3,9 @@
 import os
 import opciones
 
+from colorama import Fore, Style, init
+init(autoreset=True)
+
 from metodos_productos import (
 	ingresar_producto, 
 	mostrar_productos,
@@ -27,13 +30,13 @@ Muestra las opciones del menu por la terminal
 Parámetros:-
 Retorna:-
 """
-def mostrar_menu ():
-    print ("--- MENÚ DE OPCIONES ---")
-    print ("1. Ingresar un nuevo producto")
-    print ("2. Ver productos registrados")
-    print ("3. Buscar producto por nombre")
-    print ("4. Eliminar un producto")
-    print ("5. Salir")
+def mostrar_menu():
+    print(Fore.CYAN + "--- MENÚ DE OPCIONES ---" + Style.RESET_ALL)
+    print(Fore.YELLOW + "1. Ingresar un nuevo producto")
+    print(Fore.YELLOW + "2. Ver productos registrados")
+    print(Fore.YELLOW + "3. Buscar producto por nombre")
+    print(Fore.YELLOW + "4. Eliminar un producto")
+    print(Fore.RED + "5. Salir")
     
 """
 Muestra las opciones del menu por la terminal
