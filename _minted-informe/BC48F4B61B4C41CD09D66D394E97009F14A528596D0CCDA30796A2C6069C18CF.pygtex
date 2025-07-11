@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}Constantes que representan las opciones del menu}
+\PYG{n}{INGRESAR\PYGZus{}NUEVO\PYGZus{}PRODUCTO} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}1\PYGZsq{}}
+\PYG{n}{MOSTRAR\PYGZus{}PRODUCTOS\PYGZus{}POR\PYGZus{}TERMINAL} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}2\PYGZsq{}}
+\PYG{n}{BUSCAR\PYGZus{}PRODUCTO\PYGZus{}POR\PYGZus{}NOMBRE} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}3\PYGZsq{}}
+\PYG{n}{ELIMINAR\PYGZus{}PRODUCTO\PYGZus{}POR\PYGZus{}INDICE} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}4\PYGZsq{}}
+\PYG{n}{FINALIZAR\PYGZus{}PROGRAMA} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}5\PYGZsq{}}
+\end{Verbatim}

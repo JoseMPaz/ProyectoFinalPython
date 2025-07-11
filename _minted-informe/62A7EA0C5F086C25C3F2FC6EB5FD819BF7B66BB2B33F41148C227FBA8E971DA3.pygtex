@@ -1,0 +1,50 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Pre\PYGZus{}Entrega}
+\PYG{c+c1}{\PYGZsh{} Alumno: Paz Portilla, Jose Miguel}
+\PYG{c+c1}{\PYGZsh{} Comision: 25010}
+
+\PYG{c+c1}{\PYGZsh{}De metodos\PYGZus{}productos.py importa los metodos: }
+\PYG{c+c1}{\PYGZsh{}ingresar\PYGZus{}producto, mostrar\PYGZus{}productos, buscar\PYGZus{}producto, eliminar\PYGZus{}producto.}
+\PYG{k+kn}{from} \PYG{n+nn}{metodos\PYGZus{}productos} \PYG{k+kn}{import} \PYG{p}{(} 
+	\PYG{n}{ingresar\PYGZus{}producto}\PYG{p}{,}
+	\PYG{n}{mostrar\PYGZus{}productos}\PYG{p}{,}
+	\PYG{n}{buscar\PYGZus{}producto}\PYG{p}{,}
+	\PYG{n}{eliminar\PYGZus{}producto}\PYG{p}{,}
+	\PYG{n}{cargar\PYGZus{}productos}\PYG{p}{,}
+	\PYG{n}{guardar\PYGZus{}productos}
+\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{}De menu.py importa los metodos: }
+\PYG{c+c1}{\PYGZsh{}limpiar\PYGZus{}pantalla, mostrar\PYGZus{}menu, ejecutar\PYGZus{}opcion, ingresar\PYGZus{}opcion.}
+\PYG{k+kn}{from} \PYG{n+nn}{menu} \PYG{k+kn}{import} \PYG{p}{(}
+	\PYG{n}{limpiar\PYGZus{}pantalla}\PYG{p}{,}
+	\PYG{n}{mostrar\PYGZus{}menu}\PYG{p}{,}
+	\PYG{n}{ejecutar\PYGZus{}opcion}\PYG{p}{,}
+	\PYG{n}{ingresar\PYGZus{}opcion} 
+\PYG{p}{)}
+\PYG{+w}{    }
+\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{Es el programa principal, repetitivamente limpia la terminal(hasta ingresar terminar program), }
+\PYG{l+s+sd}{muestra un menu de opciones, toma la opcion y realiza alguna accion sobre productos a partir de ella.}
+\PYG{l+s+sd}{Parámetros:\PYGZhy{}}
+\PYG{l+s+sd}{Retorna:\PYGZhy{}}
+\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}} 
+\PYG{k}{def} \PYG{n+nf}{main} \PYG{p}{()} \PYG{p}{:}
+	
+	\PYG{n}{productos} \PYG{o}{=} \PYG{n}{cargar\PYGZus{}productos}\PYG{p}{()}
+	\PYG{n}{volver\PYGZus{}al\PYGZus{}menu} \PYG{o}{=} \PYG{k+kc}{True}
+	
+	\PYG{k}{while} \PYG{n}{volver\PYGZus{}al\PYGZus{}menu} \PYG{o}{==} \PYG{k+kc}{True} \PYG{p}{:} 
+		\PYG{n}{limpiar\PYGZus{}pantalla} \PYG{p}{()} 
+		\PYG{n}{mostrar\PYGZus{}menu} \PYG{p}{()} 
+		\PYG{n}{opcion} \PYG{o}{=} \PYG{n}{ingresar\PYGZus{}opcion} \PYG{p}{()}
+		\PYG{n}{volver\PYGZus{}al\PYGZus{}menu} \PYG{o}{=} \PYG{n}{ejecutar\PYGZus{}opcion} \PYG{p}{(} \PYG{n}{opcion} \PYG{p}{,} \PYG{n}{productos} \PYG{p}{)} 
+	\PYG{n}{guardar\PYGZus{}productos}\PYG{p}{(}\PYG{n}{productos}\PYG{p}{)}
+	\PYG{n}{limpiar\PYGZus{}pantalla} \PYG{p}{()}
+	\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n\PYGZbs{}n\PYGZbs{}t\PYGZbs{}t}\PYG{l+s+s2}{¡PROGRAMA FINALIZADO!}\PYG{l+s+se}{\PYGZbs{}n\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+		
+
+\PYG{k}{if} \PYG{n+nv+vm}{\PYGZus{}\PYGZus{}name\PYGZus{}\PYGZus{}} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}\PYGZus{}\PYGZus{}main\PYGZus{}\PYGZus{}\PYGZdq{}}\PYG{p}{:}
+    \PYG{n}{main}\PYG{p}{()}
+    
+\end{Verbatim}
