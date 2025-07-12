@@ -1,0 +1,95 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{colorama} \PYG{k+kn}{import} \PYG{n}{Fore}\PYG{p}{,} \PYG{n}{Style}\PYG{p}{,} \PYG{n}{init}
+\PYG{k+kn}{import} \PYG{n+nn}{productos}
+\PYG{k+kn}{import} \PYG{n+nn}{os}
+
+\PYG{n}{init}\PYG{p}{(}\PYG{n}{autoreset}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+
+\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{Refresca o limpia la terminal}
+\PYG{l+s+sd}{Parámetros:\PYGZhy{}}
+\PYG{l+s+sd}{Retorna:\PYGZhy{}}
+\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{k}{def} \PYG{n+nf}{limpiar\PYGZus{}pantalla}\PYG{p}{():}
+	\PYG{c+c1}{\PYGZsh{} os.system: Ejecuta un comando del sistema operativo }
+	\PYG{c+c1}{\PYGZsh{} como si se escribiera en la terminal.}
+	\PYG{c+c1}{\PYGZsh{} Si el nombre del sistema operativo es windows utiliza cls,}
+	\PYG{c+c1}{\PYGZsh{} sino utiliza clear para refrescar la pantalla}
+    \PYG{n}{os}\PYG{o}{.}\PYG{n}{system}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}cls\PYGZsq{}} \PYG{k}{if} \PYG{n}{os}\PYG{o}{.}\PYG{n}{name} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}nt\PYGZsq{}} \PYG{k}{else} \PYG{l+s+s1}{\PYGZsq{}clear\PYGZsq{}}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{mostrar\PYGZus{}menu}\PYG{p}{():}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{CYAN} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZhy{}\PYGZhy{}\PYGZhy{} MENÚ DE OPCIONES \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZdq{}}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{YELLOW} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}1.\PYGZdq{}} \PYG{o}{+} \PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RESET} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{} Registrar nuevo producto\PYGZdq{}}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{YELLOW} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}2.\PYGZdq{}} \PYG{o}{+} \PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RESET} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{} Ver productos\PYGZdq{}}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{YELLOW} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}3.\PYGZdq{}} \PYG{o}{+} \PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RESET} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{} Actualizar producto\PYGZdq{}}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{YELLOW} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}4.\PYGZdq{}} \PYG{o}{+} \PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RESET} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{} Eliminar producto\PYGZdq{}}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{YELLOW} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}5.\PYGZdq{}} \PYG{o}{+} \PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RESET} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{} Buscar producto por ID\PYGZdq{}}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{YELLOW} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}6.\PYGZdq{}} \PYG{o}{+} \PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RESET} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{} Buscar por nombre o categoría\PYGZdq{}}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{YELLOW} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}7.\PYGZdq{}} \PYG{o}{+} \PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RESET} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{} Reporte de stock bajo\PYGZdq{}}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{YELLOW} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}8.\PYGZdq{}} \PYG{o}{+} \PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RESET} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{} Salir\PYGZdq{}}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{ejecutar\PYGZus{}opcion}\PYG{p}{(}\PYG{n}{opcion}\PYG{p}{):}
+    \PYG{k}{match} \PYG{n}{opcion}\PYG{p}{:}
+        \PYG{k}{case} \PYG{l+s+s2}{\PYGZdq{}1\PYGZdq{}}\PYG{p}{:}
+            \PYG{n}{nombre} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Nombre: \PYGZdq{}}\PYG{p}{)}
+            \PYG{n}{descripcion} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Descripción: \PYGZdq{}}\PYG{p}{)}
+            \PYG{n}{cantidad} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Cantidad: \PYGZdq{}}\PYG{p}{))}
+            \PYG{n}{precio} \PYG{o}{=} \PYG{n+nb}{float}\PYG{p}{(}\PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Precio: \PYGZdq{}}\PYG{p}{))}
+            \PYG{n}{categoria} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Categoría: \PYGZdq{}}\PYG{p}{)}
+            \PYG{n}{productos}\PYG{o}{.}\PYG{n}{agregar}\PYG{p}{(}\PYG{n}{nombre}\PYG{p}{,} \PYG{n}{descripcion}\PYG{p}{,} \PYG{n}{cantidad}\PYG{p}{,} \PYG{n}{precio}\PYG{p}{,} \PYG{n}{categoria}\PYG{p}{)}
+            \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{GREEN} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}Producto registrado.\PYGZdq{}}\PYG{p}{)}
+
+        \PYG{k}{case} \PYG{l+s+s2}{\PYGZdq{}2\PYGZdq{}}\PYG{p}{:}
+            \PYG{k}{for} \PYG{n}{producto} \PYG{o+ow}{in} \PYG{n}{productos}\PYG{o}{.}\PYG{n}{listar}\PYG{p}{():}
+                \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{producto}\PYG{p}{)}
+
+        \PYG{k}{case} \PYG{l+s+s2}{\PYGZdq{}3\PYGZdq{}}\PYG{p}{:}
+            \PYG{n}{pid} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}ID del producto a actualizar: \PYGZdq{}}\PYG{p}{))}
+            \PYG{n}{p} \PYG{o}{=} \PYG{n}{productos}\PYG{o}{.}\PYG{n}{buscar\PYGZus{}por\PYGZus{}id}\PYG{p}{(}\PYG{n}{pid}\PYG{p}{)}
+            \PYG{k}{if} \PYG{n}{p}\PYG{p}{:}
+                \PYG{n}{nombre} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Nuevo nombre (}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{p}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{): \PYGZdq{}}\PYG{p}{)} \PYG{o+ow}{or} \PYG{n}{p}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}
+                \PYG{n}{descripcion} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Nueva descripción (}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{p}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{): \PYGZdq{}}\PYG{p}{)} \PYG{o+ow}{or} \PYG{n}{p}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}
+                \PYG{n}{cantidad} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Nueva cantidad (}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{p}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{): \PYGZdq{}}\PYG{p}{)} \PYG{o+ow}{or} \PYG{n}{p}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{])}
+                \PYG{n}{precio} \PYG{o}{=} \PYG{n+nb}{float}\PYG{p}{(}\PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Nuevo precio (}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{p}\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{]}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{): \PYGZdq{}}\PYG{p}{)} \PYG{o+ow}{or} \PYG{n}{p}\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{])}
+                \PYG{n}{categoria} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Nueva categoría (}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{p}\PYG{p}{[}\PYG{l+m+mi}{5}\PYG{p}{]}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{): \PYGZdq{}}\PYG{p}{)} \PYG{o+ow}{or} \PYG{n}{p}\PYG{p}{[}\PYG{l+m+mi}{5}\PYG{p}{]}
+                \PYG{n}{productos}\PYG{o}{.}\PYG{n}{actualizar}\PYG{p}{(}\PYG{n}{pid}\PYG{p}{,} \PYG{n}{nombre}\PYG{p}{,} \PYG{n}{descripcion}\PYG{p}{,} \PYG{n}{cantidad}\PYG{p}{,} \PYG{n}{precio}\PYG{p}{,} \PYG{n}{categoria}\PYG{p}{)}
+                \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{GREEN} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}Producto actualizado.\PYGZdq{}}\PYG{p}{)}
+            \PYG{k}{else}\PYG{p}{:}
+                \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RED} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}Producto no encontrado.\PYGZdq{}}\PYG{p}{)}
+
+        \PYG{k}{case} \PYG{l+s+s2}{\PYGZdq{}4\PYGZdq{}}\PYG{p}{:}
+            \PYG{n}{pid} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}ID del producto a eliminar: \PYGZdq{}}\PYG{p}{))}
+            \PYG{n}{productos}\PYG{o}{.}\PYG{n}{eliminar}\PYG{p}{(}\PYG{n}{pid}\PYG{p}{)}
+            \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RED} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}Producto eliminado.\PYGZdq{}}\PYG{p}{)}
+
+        \PYG{k}{case} \PYG{l+s+s2}{\PYGZdq{}5\PYGZdq{}}\PYG{p}{:}
+            \PYG{n}{pid} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}ID del producto: \PYGZdq{}}\PYG{p}{))}
+            \PYG{n}{p} \PYG{o}{=} \PYG{n}{productos}\PYG{o}{.}\PYG{n}{buscar\PYGZus{}por\PYGZus{}id}\PYG{p}{(}\PYG{n}{pid}\PYG{p}{)}
+            \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{p} \PYG{k}{if} \PYG{n}{p} \PYG{k}{else} \PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RED} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}Producto no encontrado.\PYGZdq{}}\PYG{p}{)}
+
+        \PYG{k}{case} \PYG{l+s+s2}{\PYGZdq{}6\PYGZdq{}}\PYG{p}{:}
+            \PYG{n}{tipo} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Buscar por (n)ombre o (c)ategoría: \PYGZdq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{lower}\PYG{p}{()}
+            \PYG{k}{if} \PYG{n}{tipo} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}n\PYGZdq{}}\PYG{p}{:}
+                \PYG{n}{nombre} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Nombre: \PYGZdq{}}\PYG{p}{)}
+                \PYG{n}{encontrados} \PYG{o}{=} \PYG{n}{productos}\PYG{o}{.}\PYG{n}{buscar\PYGZus{}por\PYGZus{}nombre}\PYG{p}{(}\PYG{n}{nombre}\PYG{p}{)}
+            \PYG{k}{elif} \PYG{n}{tipo} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}c\PYGZdq{}}\PYG{p}{:}
+                \PYG{n}{categoria} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Categoría: \PYGZdq{}}\PYG{p}{)}
+                \PYG{n}{encontrados} \PYG{o}{=} \PYG{n}{productos}\PYG{o}{.}\PYG{n}{buscar\PYGZus{}por\PYGZus{}categoria}\PYG{p}{(}\PYG{n}{categoria}\PYG{p}{)}
+            \PYG{k}{else}\PYG{p}{:}
+                \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RED} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}Opción inválida.\PYGZdq{}}\PYG{p}{)}
+                \PYG{k}{return}
+            \PYG{k}{for} \PYG{n}{p} \PYG{o+ow}{in} \PYG{n}{encontrados}\PYG{p}{:}
+                \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{p}\PYG{p}{)}
+
+        \PYG{k}{case} \PYG{l+s+s2}{\PYGZdq{}7\PYGZdq{}}\PYG{p}{:}
+            \PYG{n}{limite} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Mostrar productos con stock ≤: \PYGZdq{}}\PYG{p}{))}
+            \PYG{k}{for} \PYG{n}{p} \PYG{o+ow}{in} \PYG{n}{productos}\PYG{o}{.}\PYG{n}{stock\PYGZus{}bajo}\PYG{p}{(}\PYG{n}{limite}\PYG{p}{):}
+                \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{p}\PYG{p}{)}
+
+        \PYG{k}{case} \PYG{l+s+s2}{\PYGZdq{}8\PYGZdq{}}\PYG{p}{:}
+            \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{CYAN} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}¡Programa Finalizado!\PYGZdq{}}\PYG{p}{)}
+            \PYG{n}{exit}\PYG{p}{()}
+
+        \PYG{k}{case}\PYG{+w}{ }\PYG{k}{\PYGZus{}}\PYG{p}{:}
+            \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RED} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}Opción inválida.\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

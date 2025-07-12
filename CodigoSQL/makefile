@@ -2,5 +2,5 @@
 # make
 # o sino: 
 # make run
-run: main.py metodos_productos.py menu.py opciones.py
+run: main.py productos.py menu.py
 	python3 main.py

@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZsh{}Para ejecutar el archivo utilizando este makefile escribir en terminal:}
+\PYG{c}{\PYGZsh{} make}
+\PYG{c}{\PYGZsh{} o sino: }
+\PYG{c}{\PYGZsh{} make run}
+\PYG{n+nf}{run}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{main}.\PYG{n}{py} \PYG{n}{productos}.\PYG{n}{py} \PYG{n}{menu}.\PYG{n}{py}
+\PYG{+w}{	}python3\PYG{+w}{ }main.py
+\end{Verbatim}
