@@ -75,6 +75,8 @@ Para ejecutar el programa desde una terminal ubicada donde se encuentran los \te
 	\label{fig:Correr el programa}
 \end{figure}  
 
+Al iniciar el programa, si no hay un archivo CSV se inicializa la lista de productos como vacia, caso contrario se carga la lista de productos con los productos del archivo CSV.\\
+
 El programa refresca la terminal y muestra un menu con opciones, se le solicita al usuario que ingrese un número del menu entre las disponibles, como se muestra en la \autoref{fig:menu}.
 
 \begin{figure}[H]
@@ -85,22 +87,22 @@ El programa refresca la terminal y muestra un menu con opciones, se le solicita 
 	\label{fig:menu}
 \end{figure} 
 
-Al ingresar la opción $1$, de solicita el nombre, categoria y precio del nuevo producto para almacenarlo en la lista productos, como se muentra en la \autoref{fig:nuevo producto}.
+Al ingresar la opción $1$, se solicita el nombre, categoria y precio del \textbf{nuevo producto} para almacenarlo en la lista productos, como se muentra en la \autoref{fig:nuevo producto}.
 
 \begin{figure}[H]
 	\centering
 	\setlength{\fboxrule}{0pt}
-	\includegraphics[width=0.5\textwidth]{Imagenes/img2.png}
+	\includegraphics[width=0.5\textwidth]{Imagenes/nuevo_producto.png}
 	\caption{Ingreso nuevo producto}
 	\label{fig:nuevo producto}
 \end{figure} 
 
-Posteriormente al ingresar la opción $2$, se lista los productos en el inventario, como se muestra en la \autoref{fig:mostrar productos}.
+Posteriormente al ingresar la opción $2$, a partir de la lista productos se muestran los productos del inventario, como se observa en la \autoref{fig:mostrar productos}.
 
 \begin{figure}[H]
 	\centering
 	\setlength{\fboxrule}{0pt}
-	\includegraphics[width=0.5\textwidth]{Imagenes/img3.png}
+	\includegraphics[width=0.5\textwidth]{Imagenes/mostrar_productos.png}
 	\caption{Mostrar productos}
 	\label{fig:mostrar productos}
 \end{figure} 
@@ -110,7 +112,7 @@ Para buscar un producto por su nombre se ingresa la opcion $3$, el programa busc
 \begin{figure}[H]
 	\centering
 	\setlength{\fboxrule}{0pt}
-	\includegraphics[width=0.5\textwidth]{Imagenes/img4.png}
+	\includegraphics[width=0.5\textwidth]{Imagenes/busqueda_por_nombre_producto.png}
 	\caption{Buscar producto por nombre}
 	\label{fig:buscar producto}
 \end{figure} 
@@ -120,7 +122,7 @@ Con la opción $4$, se puede eliminar un producto con la posición en la lista m
 \begin{figure}[H]
 	\centering
 	\setlength{\fboxrule}{0pt}
-	\includegraphics[width=0.5\textwidth]{Imagenes/img5.png}
+	\includegraphics[width=0.5\textwidth]{Imagenes/eliminar_producto.png}
 	\caption{Eliminar producto por indice}
 	\label{fig:eliminar producto}
 \end{figure} 
@@ -129,54 +131,57 @@ Finalmente para finalizar el programa se ingresa la opción $5$, y se muestra po
 \begin{figure}[H]
 	\centering
 	\setlength{\fboxrule}{0pt}
-	\includegraphics[width=0.66\textwidth]{Imagenes/img6.png}
+	\includegraphics[width=0.66\textwidth]{Imagenes/finalizar_programa.png}
 	\caption{Finalizacion del programa}
 	\label{fig:fin programa}
 \end{figure} 
 
+Además se muestra el archivo CSV que actua como base de datos, como se observa en la \autoref{fig:archivo_csv}.
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{0pt}
+	\includegraphics[width=0.3\textwidth]{Imagenes/archivo_csv.png}
+	\caption{Archivo CSV}
+	\label{fig:archivo_csv}
+\end{figure} 
+
+
+\subsection{Implementación SQL}
+Aún no se vio el tema.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Pruebas}
 
 \subsection{Pruebas CSV}
 \subsubsection{Opción fuera del rango}
 
-Como se observa en la \autoref{fig:error rango de opciones}, al ingresar opciones fuera de las opciones del menu 
+Como se observa en la \autoref{fig:error rango de opciones}, al ingresar una opción fuera de las opciones del menu 
 el programa evita que se ejecuten.
-\begin{figure}[H]
-    \centering
-
-    \begin{subfigure}[b]{0.4\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{Imagenes/img7.png}
-        \caption*{(a) Error por opción por debajo del rango}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.4\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{Imagenes/img8.png}
-        \caption*{(b) Error por opción por encima del rango}
-    \end{subfigure}
-
-    \caption{Errores por elegir opciones fuera del rango}
-    \label{fig:error rango de opciones}
-\end{figure}
-
-\subsubsection{Campos del producto}
-
-Como se observa en la \autoref{fig:error en campos de producto}, al ingresar campos vacios del nombre o categoria del producto o bien si se 
-ingresa valores negativos o reales al precio del producto, el sistema no permite continuar con la ejecución del programa.
 
 \begin{figure}[H]
 	\centering
 	\setlength{\fboxrule}{0pt}
-	\includegraphics[width=0.6\textwidth]{Imagenes/img9.png}
+	\includegraphics[width=0.3\textwidth]{Imagenes/error_opcion_menu.png}
+	\caption{Error por elegir opciones fuera del rango}
+	\label{fig:error rango de opciones}
+\end{figure} 
+
+\subsubsection{Campos del producto}
+
+Como se observa en la \autoref{fig:error en campos de producto}, al ingresar campos vacios del nombre o categoria del producto o bien si se 
+ingresa valores no enteros al precio del producto, el sistema no permite continuar con la ejecución del programa.
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{0pt}
+	\includegraphics[width=0.6\textwidth]{Imagenes/errores_nuevo_producto.png}
 	\caption{Pruebas al ingresar los campos del producto}
 	\label{fig:error en campos de producto}
 \end{figure} 
 
 \subsubsection{Busqueda de producto por nombre}
 
-Al ingresar varios productos, se guardan en la lista en forma ordenada alfabeticamente por nombre. Cuando se busca un nombre de un producto
+Al ingresar varios productos, se guardan en la lista de productos en forma ordenada alfabeticamente por nombre. Cuando se busca un nombre de un producto
 se genera una sublista con las coincidencias y se muestra por la terminal en caso en encontrar como se muestra en la \autoref{fig:busqueda de producto}, sino muestra un mensaje que el producto no esta en el inventario.
 
 \begin{figure}[H]
@@ -184,13 +189,13 @@ se genera una sublista con las coincidencias y se muestra por la terminal en cas
 
     \begin{subfigure}[b]{0.6\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{Imagenes/img10.png}
+        \includegraphics[width=\textwidth]{Imagenes/productos_pre_busqueda.png}
         \caption*{(a) Productos en el inventario}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.6\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{Imagenes/img11.png}
+        \includegraphics[width=\textwidth]{Imagenes/productos_post_busqueda.png}
         \caption*{(b) Busqueda de un producto por nombre encontrado}
     \end{subfigure}
 
@@ -206,13 +211,13 @@ Como se muestra en la \autoref{fig:eliminacion de producto}, en la terminal se o
 
     \begin{subfigure}[b]{0.6\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{Imagenes/img12.png}
+        \includegraphics[width=\textwidth]{Imagenes/pre_eliminacion.png}
         \caption*{(a) Posición del producto a eliminar}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.6\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{Imagenes/img13.png}
+        \includegraphics[width=\textwidth]{Imagenes/post_eliminacion.png}
         \caption*{(b) Inventario despues de eliminar el producto}
     \end{subfigure}
 
@@ -220,9 +225,10 @@ Como se muestra en la \autoref{fig:eliminacion de producto}, en la terminal se o
     \label{fig:eliminacion de producto}
 \end{figure}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Código}
-\subsection{Código - CSV = Comma-Separated Values(Valores Separados por Coma)}
+\subsection{Código - CSV = Comma Separated Values(Valores Separados por Coma)}
 
 \subsubsection{makefile}
 \inputminted[fontsize=\small]{make}{CodigoCSV/makefile}
@@ -245,6 +251,6 @@ Aún no se vio en clases.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusión}
 
-En este informe realizado al combinar \LaTeX y Python se presenta una simplificación del programa inventario, donde se pudo aplicar lo aprendido en clases, como listas, condicionales, bucles, ademas se uso modulacion y funciones, además de el uso de la función main y un makefile para ejecutar de un forma más práctica el código.
+En este informe realizado al combinar \LaTeX y Python se presenta una simplificación del programa inventario, donde se pudo aplicar lo aprendido en clases, como listas, archivos,  condicionales, bucles, ademas se uso modulacion y funciones, además de el uso de la función main y un makefile para ejecutar de un forma más práctica el código.
 
 \end{document}

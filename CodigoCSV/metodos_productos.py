@@ -15,7 +15,7 @@ productos(list): lista de productos
 Retorna:-
 """ 
 def ingresar_producto ( productos ):
-	print ("--- NUEVO PRODUCTO ---")
+	print (Fore.BLUE + "--- NUEVO PRODUCTO ---")
 	while True:
 		nombre = input(Fore.YELLOW + "Ingrese el nombre del producto: ").strip()
 		if nombre != "":
