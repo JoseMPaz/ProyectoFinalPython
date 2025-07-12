@@ -4,7 +4,7 @@
 \PYG{k+kn}{import} \PYG{n+nn}{os}
 \PYG{k+kn}{import} \PYG{n+nn}{opciones}
 
-\PYG{k+kn}{from} \PYG{n+nn}{colorama} \PYG{k+kn}{import} \PYG{n}{Fore}\PYG{p}{,} \PYG{n}{Style}\PYG{p}{,} \PYG{n}{init}
+\PYG{k+kn}{from} \PYG{n+nn}{colorama} \PYG{k+kn}{import} \PYG{n}{Fore}\PYG{p}{,} \PYG{n}{Style}\PYG{p}{,} \PYG{n}{Back}\PYG{p}{,} \PYG{n}{init}
 \PYG{n}{init}\PYG{p}{(}\PYG{n}{autoreset}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
 
 \PYG{k+kn}{from} \PYG{n+nn}{metodos\PYGZus{}productos} \PYG{k+kn}{import} \PYG{p}{(}
@@ -32,7 +32,7 @@
 \PYG{l+s+sd}{Retorna:\PYGZhy{}}
 \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
 \PYG{k}{def} \PYG{n+nf}{mostrar\PYGZus{}menu}\PYG{p}{():}
-    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{CYAN} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}\PYGZhy{}\PYGZhy{} MENÚ DE OPCIONES \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZdq{}} \PYG{o}{+} \PYG{n}{Style}\PYG{o}{.}\PYG{n}{RESET\PYGZus{}ALL}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{BLUE} \PYG{o}{+} \PYG{n}{Back}\PYG{o}{.}\PYG{n}{CYAN} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}\PYGZhy{}\PYGZhy{} MENÚ DE OPCIONES \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZdq{}} \PYG{o}{+} \PYG{n}{Style}\PYG{o}{.}\PYG{n}{RESET\PYGZus{}ALL}\PYG{p}{)}
     \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{YELLOW} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}1. Ingresar un nuevo producto\PYGZdq{}}\PYG{p}{)}
     \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{YELLOW} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}2. Ver productos registrados\PYGZdq{}}\PYG{p}{)}
     \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{YELLOW} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}3. Buscar producto por nombre\PYGZdq{}}\PYG{p}{)}
@@ -46,7 +46,7 @@
 \PYG{l+s+sd}{eliminando los espacios en blanco al inicio y al final}
 \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}    
 \PYG{k}{def} \PYG{n+nf}{ingresar\PYGZus{}opcion} \PYG{p}{():}
-	\PYG{n}{opcion} \PYG{o}{=} \PYG{n+nb}{input} \PYG{p}{(} \PYG{l+s+s2}{\PYGZdq{}Seleccionar una opción (1\PYGZhy{}5): \PYGZdq{}} \PYG{p}{)}\PYG{o}{.}\PYG{n}{strip}\PYG{p}{()}
+	\PYG{n}{opcion} \PYG{o}{=} \PYG{n+nb}{input} \PYG{p}{(} \PYG{n}{Fore}\PYG{o}{.}\PYG{n}{GREEN} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}Seleccionar una opción (1\PYGZhy{}5): \PYGZdq{}} \PYG{p}{)}\PYG{o}{.}\PYG{n}{strip}\PYG{p}{()}
 	\PYG{k}{return} \PYG{n}{opcion}
 
 \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
@@ -71,9 +71,9 @@
 		\PYG{k}{case} \PYG{n}{opciones}\PYG{o}{.}\PYG{n}{FINALIZAR\PYGZus{}PROGRAMA}\PYG{p}{:}
 			\PYG{k}{return} \PYG{k+kc}{False}  \PYG{c+c1}{\PYGZsh{} salir del programa}
 		\PYG{k}{case}\PYG{+w}{ }\PYG{k}{\PYGZus{}}\PYG{p}{:}
-			\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}ERROR: OPCIÓN FUERA DEL RANGO\PYGZdq{}}\PYG{p}{)}
+			\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RED} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}ERROR: OPCIÓN FUERA DEL RANGO\PYGZdq{}}\PYG{p}{)}
 
-	\PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Presione ENTER para continuar\PYGZdq{}}\PYG{p}{)}
+	\PYG{n+nb}{input}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{MAGENTA} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}Presione ENTER para continuar\PYGZdq{}}\PYG{p}{)}
 	\PYG{k}{return} \PYG{k+kc}{True}  \PYG{c+c1}{\PYGZsh{} continuar el bucle}
     
 \end{Verbatim}

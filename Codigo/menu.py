@@ -3,7 +3,7 @@
 import os
 import opciones
 
-from colorama import Fore, Style, init
+from colorama import Fore, Style, Back, init
 init(autoreset=True)
 
 from metodos_productos import (
@@ -31,7 +31,7 @@ Parámetros:-
 Retorna:-
 """
 def mostrar_menu():
-    print(Fore.CYAN + "--- MENÚ DE OPCIONES ---" + Style.RESET_ALL)
+    print(Fore.BLUE + Back.CYAN + "--- MENÚ DE OPCIONES ---" + Style.RESET_ALL)
     print(Fore.YELLOW + "1. Ingresar un nuevo producto")
     print(Fore.YELLOW + "2. Ver productos registrados")
     print(Fore.YELLOW + "3. Buscar producto por nombre")
@@ -45,7 +45,7 @@ Retorna:la opcion que se ingreso por teclado,
 eliminando los espacios en blanco al inicio y al final
 """    
 def ingresar_opcion ():
-	opcion = input ( "Seleccionar una opción (1-5): " ).strip()
+	opcion = input ( Fore.GREEN + "Seleccionar una opción (1-5): " ).strip()
 	return opcion
 
 """
@@ -70,8 +70,8 @@ def ejecutar_opcion ( opcion , productos ) :
 		case opciones.FINALIZAR_PROGRAMA:
 			return False  # salir del programa
 		case _:
-			print("ERROR: OPCIÓN FUERA DEL RANGO")
+			print(Fore.RED + "ERROR: OPCIÓN FUERA DEL RANGO")
 
-	input("Presione ENTER para continuar")
+	input(Fore.MAGENTA + "Presione ENTER para continuar")
 	return True  # continuar el bucle
     

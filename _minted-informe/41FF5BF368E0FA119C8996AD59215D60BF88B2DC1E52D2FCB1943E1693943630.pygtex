@@ -3,7 +3,8 @@
 
 \PYG{k+kn}{import} \PYG{n+nn}{os}
 \PYG{k+kn}{import} \PYG{n+nn}{csv} \PYG{c+c1}{\PYGZsh{} CSV = Comma\PYGZhy{}Separated Values: utiliza los metodos read() y write() para manejar la base\PYGZus{}datos.csv con separacion de comas, writerows convierte la lista productos como sublistas producto con comas y los almacena por filas.}
-
+\PYG{k+kn}{from} \PYG{n+nn}{colorama} \PYG{k+kn}{import} \PYG{n}{Fore}\PYG{p}{,} \PYG{n}{Style}\PYG{p}{,} \PYG{n}{Back}\PYG{p}{,} \PYG{n}{init}
+\PYG{n}{init}\PYG{p}{(}\PYG{n}{autoreset}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
 \PYG{n}{NOMBRE} \PYG{o}{=} \PYG{l+m+mi}{0} \PYG{c+c1}{\PYGZsh{} producto[0]: NOMBRE, producto[1]: CATEGORIA, producto[2]: PRECIO}
 
 \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
@@ -16,27 +17,27 @@
 \PYG{k}{def} \PYG{n+nf}{ingresar\PYGZus{}producto} \PYG{p}{(} \PYG{n}{productos} \PYG{p}{):}
 	\PYG{n+nb}{print} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}\PYGZhy{}\PYGZhy{} NUEVO PRODUCTO \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZdq{}}\PYG{p}{)}
 	\PYG{k}{while} \PYG{k+kc}{True}\PYG{p}{:}
-		\PYG{n}{nombre} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Ingrese el nombre del producto: \PYGZdq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{strip}\PYG{p}{()}
+		\PYG{n}{nombre} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{YELLOW} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}Ingrese el nombre del producto: \PYGZdq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{strip}\PYG{p}{()}
 		\PYG{k}{if} \PYG{n}{nombre} \PYG{o}{!=} \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}}\PYG{p}{:}
 			\PYG{k}{break}
-		\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}ERROR: NOMBRE DE PRODUCTO ESTA VACIA\PYGZdq{}}\PYG{p}{)}
+		\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RED} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}ERROR: NOMBRE DE PRODUCTO ESTA VACIA\PYGZdq{}}\PYG{p}{)}
 
 	\PYG{k}{while} \PYG{k+kc}{True}\PYG{p}{:}
-		\PYG{n}{categoria} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Ingrese la categoría del producto: \PYGZdq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{strip}\PYG{p}{()}
+		\PYG{n}{categoria} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{YELLOW} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}Ingrese la categoría del producto: \PYGZdq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{strip}\PYG{p}{()}
 		\PYG{k}{if} \PYG{n}{categoria} \PYG{o}{!=} \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}}\PYG{p}{:}
 			\PYG{k}{break}
-		\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}ERROR: NOMBRE DE LA CATEGORIA ESTA VACIA\PYGZdq{}}\PYG{p}{)}
+		\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RED} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}ERROR: NOMBRE DE LA CATEGORIA ESTA VACIA\PYGZdq{}}\PYG{p}{)}
 
 	\PYG{k}{while} \PYG{k+kc}{True}\PYG{p}{:}
 		\PYG{c+c1}{\PYGZsh{}Bloque para atrape el error de conversion de cadena a entero}
 		\PYG{k}{try}\PYG{p}{:}
-			\PYG{n}{precio} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Ingrese el precio del producto (sin centavos): \PYGZdq{}}\PYG{p}{))}
+			\PYG{n}{precio} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n+nb}{input}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{YELLOW} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}Ingrese el precio del producto (sin centavos): \PYGZdq{}}\PYG{p}{))}
 			\PYG{k}{if} \PYG{n}{precio} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{0}\PYG{p}{:}
-				\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}ERROR: EL PRECIO INGRESADO ES NEGATIVO\PYGZdq{}}\PYG{p}{)}
+				\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RED} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}ERROR: EL PRECIO INGRESADO ES NEGATIVO\PYGZdq{}}\PYG{p}{)}
 				\PYG{k}{continue}
 			\PYG{k}{break}
 		\PYG{k}{except} \PYG{n+ne}{ValueError}\PYG{p}{:}
-			\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}ERROR: EL PRECIO NO ES UN VALOR ENTERO\PYGZdq{}}\PYG{p}{)}
+			\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RED} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}ERROR: EL PRECIO NO ES UN VALOR ENTERO\PYGZdq{}}\PYG{p}{)}
 
 	\PYG{n}{producto} \PYG{o}{=} \PYG{p}{[}\PYG{n}{nombre}\PYG{p}{,} \PYG{n}{categoria}\PYG{p}{,} \PYG{n}{precio}\PYG{p}{]}
 	
@@ -63,14 +64,14 @@
 \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}} 
 \PYG{k}{def} \PYG{n+nf}{mostrar\PYGZus{}productos} \PYG{p}{(} \PYG{n}{productos} \PYG{p}{)} \PYG{p}{:}
     \PYG{k}{if} \PYG{n+nb}{len} \PYG{p}{(}\PYG{n}{productos}\PYG{p}{)} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
-        \PYG{n+nb}{print} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}No hay productos registrados.\PYGZdq{}}\PYG{p}{)}
+        \PYG{n+nb}{print} \PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RED} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}No hay productos registrados.\PYGZdq{}}\PYG{p}{)}
         \PYG{k}{return}
 
-    \PYG{n+nb}{print} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}\PYGZhy{}\PYGZhy{} LISTA DE PRODUCTOS REGISTRADOS \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZdq{}}\PYG{p}{)}
+    \PYG{n+nb}{print} \PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{BLUE} \PYG{o}{+}  \PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}\PYGZhy{}\PYGZhy{} LISTA DE PRODUCTOS REGISTRADOS \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZdq{}}\PYG{p}{)}
     \PYG{c+c1}{\PYGZsh{} Empieza a enumerar desde 1 el i, y va deserializando producto de la lista\PYGZus{}productos}
     \PYG{k}{for} \PYG{n}{indice}\PYG{p}{,} \PYG{n}{producto} \PYG{o+ow}{in} \PYG{n+nb}{enumerate}\PYG{p}{(} \PYG{n}{productos} \PYG{p}{,} \PYG{n}{start} \PYG{o}{=} \PYG{l+m+mi}{1} \PYG{p}{):}
         \PYG{n}{nombre}\PYG{p}{,} \PYG{n}{categoria}\PYG{p}{,} \PYG{n}{precio} \PYG{o}{=} \PYG{n}{producto}
-        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{indice}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{. NOMBRE: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{nombre}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ | CATEGORÍA: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{categoria}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ | PRECIO: \PYGZdl{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{precio}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{YELLOW} \PYG{o}{+}  \PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{indice}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{. NOMBRE: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{nombre}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ | CATEGORÍA: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{categoria}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ | PRECIO: \PYGZdl{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{precio}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
 
 \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
 \PYG{l+s+sd}{Busca en la lista de productos los productos que coinciden con el nombre de productos}
@@ -80,11 +81,11 @@
 \PYG{l+s+sd}{Retorna:\PYGZhy{}}
 \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}} 
 \PYG{k}{def} \PYG{n+nf}{buscar\PYGZus{}producto} \PYG{p}{(} \PYG{n}{productos} \PYG{p}{):}
-	\PYG{n+nb}{print} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}\PYGZhy{}\PYGZhy{} BUSQUEDA DE PRODUCTO \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZdq{}}\PYG{p}{)}
+	\PYG{n+nb}{print} \PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{BLUE} \PYG{o}{+}  \PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}\PYGZhy{}\PYGZhy{} BUSQUEDA DE PRODUCTO \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZdq{}}\PYG{p}{)}
 	\PYG{c+c1}{\PYGZsh{} Borra espacios de los bordes y lo paso a minusculas}
-	\PYG{n}{nombre} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Ingresar el nombre del producto a buscar: \PYGZdq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{strip}\PYG{p}{()}\PYG{o}{.}\PYG{n}{lower}\PYG{p}{()}
+	\PYG{n}{nombre} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{GREEN} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}Ingresar el nombre del producto a buscar: \PYGZdq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{strip}\PYG{p}{()}\PYG{o}{.}\PYG{n}{lower}\PYG{p}{()}
 	\PYG{k}{if} \PYG{n}{nombre} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}}\PYG{p}{:}
-		\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}ERROR: NOMBRE DE PRODUCTO A BUSCAR ESTA VACIA\PYGZdq{}}\PYG{p}{)}
+		\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RED} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}ERROR: NOMBRE DE PRODUCTO A BUSCAR ESTA VACIA\PYGZdq{}}\PYG{p}{)}
 		\PYG{k}{return}
 
 	\PYG{n}{encontrados} \PYG{o}{=} \PYG{p}{[]}
@@ -95,9 +96,9 @@
 	\PYG{k}{if} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{encontrados}\PYG{p}{)} \PYG{o}{!=} \PYG{l+m+mi}{0}\PYG{p}{:}
 		\PYG{k}{for} \PYG{n}{indice}\PYG{p}{,} \PYG{n}{encontrado} \PYG{o+ow}{in} \PYG{n+nb}{enumerate} \PYG{p}{(} \PYG{n}{encontrados} \PYG{p}{,} \PYG{n}{start} \PYG{o}{=} \PYG{l+m+mi}{1} \PYG{p}{)} \PYG{p}{:}
 			\PYG{n}{nombre}\PYG{p}{,} \PYG{n}{categoria}\PYG{p}{,} \PYG{n}{precio} \PYG{o}{=} \PYG{n}{encontrado}
-			\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{indice}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{. Nombre: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{nombre}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ | Categoría: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{categoria}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ | Precio: \PYGZdl{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{precio}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+			\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{CYAN} \PYG{o}{+} \PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{indice}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{. Nombre: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{nombre}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ | Categoría: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{categoria}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ | Precio: \PYGZdl{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{precio}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
 	\PYG{k}{else}\PYG{p}{:}
-		\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{} NOMBRE DE PRODUCTO NO ESTA EN EL INVENTARIO\PYGZdq{}}\PYG{p}{)}
+		\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RED} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}NOMBRE DE PRODUCTO NO ESTA EN EL INVENTARIO\PYGZdq{}}\PYG{p}{)}
 
 \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
 \PYG{l+s+sd}{Elimina un producto de la lista de productos a partir de la posicion mostrada por terminal}
@@ -108,21 +109,21 @@
 \PYG{k}{def} \PYG{n+nf}{eliminar\PYGZus{}producto} \PYG{p}{(} \PYG{n}{productos} \PYG{p}{):}
 	\PYG{n+nb}{print} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}\PYGZhy{}\PYGZhy{} ELIMINACION DE PRODUCTO \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZdq{}}\PYG{p}{)}
 	\PYG{k}{if} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{productos}\PYG{p}{)} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
-		\PYG{n+nb}{print} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}INVENTARIO ESTÁ VACIO\PYGZdq{}}\PYG{p}{)}
+		\PYG{n+nb}{print} \PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RED} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}INVENTARIO ESTÁ VACIO\PYGZdq{}}\PYG{p}{)}
 		\PYG{k}{return}
 
 	\PYG{n}{mostrar\PYGZus{}productos}\PYG{p}{(}\PYG{n}{productos}\PYG{p}{)}  
 	\PYG{k}{while} \PYG{k+kc}{True}\PYG{p}{:}
 		\PYG{k}{try}\PYG{p}{:}
-			\PYG{n}{indice} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Ingrese el número del producto a eliminar: \PYGZdq{}}\PYG{p}{))}
+			\PYG{n}{indice} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n+nb}{input}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{GREEN} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}Ingrese el número del producto a eliminar: \PYGZdq{}}\PYG{p}{))}
 			\PYG{k}{if} \PYG{l+m+mi}{1} \PYG{o}{\PYGZlt{}=} \PYG{n}{indice} \PYG{o+ow}{and} \PYG{n}{indice} \PYG{o}{\PYGZlt{}=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{productos}\PYG{p}{):}
 				\PYG{c+c1}{\PYGZsh{}Se resta 1 porque la posicion en la lista empieza en 0 }
 				\PYG{n}{eliminado} \PYG{o}{=} \PYG{n}{productos}\PYG{o}{.}\PYG{n}{pop} \PYG{p}{(} \PYG{n}{indice} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1} \PYG{p}{)} 
 				\PYG{k}{break}
 			\PYG{k}{else}\PYG{p}{:}
-				\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}ERROR: OPCION DE LA LISTA DE PRODUCTOS FUERA DE RANGO\PYGZdq{}}\PYG{p}{)}
+				\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RED} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}ERROR: OPCION DE LA LISTA DE PRODUCTOS FUERA DE RANGO\PYGZdq{}}\PYG{p}{)}
 		\PYG{k}{except} \PYG{n+ne}{ValueError}\PYG{p}{:}
-			\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}ERROR: INGRESO DE UN NUMERO NO ENTERO\PYGZdq{}}\PYG{p}{)}
+			\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RED} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}ERROR: INGRESO DE UN NUMERO NO ENTERO\PYGZdq{}}\PYG{p}{)}
 
 \PYG{k}{def} \PYG{n+nf}{cargar\PYGZus{}productos} \PYG{p}{(}\PYG{n}{archivo}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}base\PYGZus{}datos.csv\PYGZsq{}}\PYG{p}{):}
 	\PYG{n}{productos} \PYG{o}{=} \PYG{p}{[]}
