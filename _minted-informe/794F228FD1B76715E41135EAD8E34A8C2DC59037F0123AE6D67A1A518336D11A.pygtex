@@ -1,0 +1,79 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}Importa el módulo estándar os, esto proporciona }
+\PYG{c+c1}{\PYGZsh{}funciones para interactuar con el sistema operativo.}
+\PYG{k+kn}{import} \PYG{n+nn}{os}
+\PYG{k+kn}{import} \PYG{n+nn}{opciones}
+
+\PYG{k+kn}{from} \PYG{n+nn}{colorama} \PYG{k+kn}{import} \PYG{n}{Fore}\PYG{p}{,} \PYG{n}{Style}\PYG{p}{,} \PYG{n}{Back}\PYG{p}{,} \PYG{n}{init}
+\PYG{n}{init}\PYG{p}{(}\PYG{n}{autoreset}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+
+\PYG{k+kn}{from} \PYG{n+nn}{metodos\PYGZus{}productos} \PYG{k+kn}{import} \PYG{p}{(}
+	\PYG{n}{ingresar\PYGZus{}producto}\PYG{p}{,} 
+	\PYG{n}{mostrar\PYGZus{}productos}\PYG{p}{,}
+	\PYG{n}{buscar\PYGZus{}producto}\PYG{p}{,}
+	\PYG{n}{eliminar\PYGZus{}producto}
+\PYG{p}{)}
+
+\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{Refresca o limpia la terminal}
+\PYG{l+s+sd}{Parámetros:\PYGZhy{}}
+\PYG{l+s+sd}{Retorna:\PYGZhy{}}
+\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{k}{def} \PYG{n+nf}{limpiar\PYGZus{}pantalla}\PYG{p}{():}
+	\PYG{c+c1}{\PYGZsh{} os.system: Ejecuta un comando del sistema operativo }
+	\PYG{c+c1}{\PYGZsh{} como si se escribiera en la terminal.}
+	\PYG{c+c1}{\PYGZsh{} Si el nombre del sistema operativo es windows utiliza cls,}
+	\PYG{c+c1}{\PYGZsh{} sino utiliza clear para refrescar la pantalla}
+    \PYG{n}{os}\PYG{o}{.}\PYG{n}{system}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}cls\PYGZsq{}} \PYG{k}{if} \PYG{n}{os}\PYG{o}{.}\PYG{n}{name} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}nt\PYGZsq{}} \PYG{k}{else} \PYG{l+s+s1}{\PYGZsq{}clear\PYGZsq{}}\PYG{p}{)}
+\PYG{+w}{    }
+\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{Muestra las opciones del menu por la terminal}
+\PYG{l+s+sd}{Parámetros:\PYGZhy{}}
+\PYG{l+s+sd}{Retorna:\PYGZhy{}}
+\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{k}{def} \PYG{n+nf}{mostrar\PYGZus{}menu}\PYG{p}{():}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{BLUE} \PYG{o}{+} \PYG{n}{Back}\PYG{o}{.}\PYG{n}{CYAN} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}\PYGZhy{}\PYGZhy{} MENÚ DE OPCIONES \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZdq{}} \PYG{o}{+} \PYG{n}{Style}\PYG{o}{.}\PYG{n}{RESET\PYGZus{}ALL}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{YELLOW} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}1. Ingresar un nuevo producto\PYGZdq{}}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{YELLOW} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}2. Ver productos registrados\PYGZdq{}}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{YELLOW} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}3. Buscar producto por nombre\PYGZdq{}}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{YELLOW} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}4. Eliminar un producto\PYGZdq{}}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RED} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}5. Salir\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{    }
+\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{Muestra las opciones del menu por la terminal}
+\PYG{l+s+sd}{Parámetros:\PYGZhy{}}
+\PYG{l+s+sd}{Retorna:la opcion que se ingreso por teclado, }
+\PYG{l+s+sd}{eliminando los espacios en blanco al inicio y al final}
+\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}    
+\PYG{k}{def} \PYG{n+nf}{ingresar\PYGZus{}opcion} \PYG{p}{():}
+	\PYG{n}{opcion} \PYG{o}{=} \PYG{n+nb}{input} \PYG{p}{(} \PYG{n}{Fore}\PYG{o}{.}\PYG{n}{GREEN} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}Seleccionar una opción (1\PYGZhy{}5): \PYGZdq{}} \PYG{p}{)}\PYG{o}{.}\PYG{n}{strip}\PYG{p}{()}
+	\PYG{k}{return} \PYG{n}{opcion}
+
+\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{Realiza la opcion sobre la lista de productos}
+\PYG{l+s+sd}{Parámetros:\PYGZhy{} opcion a realizar y la lista de productos}
+\PYG{l+s+sd}{Retorna:Bool para indicar si debe seguir pidiendo opciones o no}
+\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}} 
+\PYG{k}{def} \PYG{n+nf}{ejecutar\PYGZus{}opcion} \PYG{p}{(} \PYG{n}{opcion} \PYG{p}{,} \PYG{n}{productos} \PYG{p}{)} \PYG{p}{:}
+	\PYG{k}{match} \PYG{n}{opcion}\PYG{p}{:}
+		\PYG{k}{case} \PYG{n}{opciones}\PYG{o}{.}\PYG{n}{INGRESAR\PYGZus{}NUEVO\PYGZus{}PRODUCTO}\PYG{p}{:}
+			\PYG{n}{limpiar\PYGZus{}pantalla}\PYG{p}{()}
+			\PYG{n}{ingresar\PYGZus{}producto}\PYG{p}{(}\PYG{n}{productos}\PYG{p}{)}
+		\PYG{k}{case} \PYG{n}{opciones}\PYG{o}{.}\PYG{n}{MOSTRAR\PYGZus{}PRODUCTOS\PYGZus{}POR\PYGZus{}TERMINAL}\PYG{p}{:}
+			\PYG{n}{limpiar\PYGZus{}pantalla}\PYG{p}{()}
+			\PYG{n}{mostrar\PYGZus{}productos}\PYG{p}{(}\PYG{n}{productos}\PYG{p}{)}
+		\PYG{k}{case} \PYG{n}{opciones}\PYG{o}{.}\PYG{n}{BUSCAR\PYGZus{}PRODUCTO\PYGZus{}POR\PYGZus{}NOMBRE}\PYG{p}{:}
+			\PYG{n}{limpiar\PYGZus{}pantalla}\PYG{p}{()}
+			\PYG{n}{buscar\PYGZus{}producto}\PYG{p}{(}\PYG{n}{productos}\PYG{p}{)}
+		\PYG{k}{case} \PYG{n}{opciones}\PYG{o}{.}\PYG{n}{ELIMINAR\PYGZus{}PRODUCTO\PYGZus{}POR\PYGZus{}INDICE}\PYG{p}{:}
+			\PYG{n}{limpiar\PYGZus{}pantalla}\PYG{p}{()}
+			\PYG{n}{eliminar\PYGZus{}producto}\PYG{p}{(}\PYG{n}{productos}\PYG{p}{)}
+		\PYG{k}{case} \PYG{n}{opciones}\PYG{o}{.}\PYG{n}{FINALIZAR\PYGZus{}PROGRAMA}\PYG{p}{:}
+			\PYG{k}{return} \PYG{k+kc}{False}  \PYG{c+c1}{\PYGZsh{} salir del programa}
+		\PYG{k}{case}\PYG{+w}{ }\PYG{k}{\PYGZus{}}\PYG{p}{:}
+			\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{RED} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}ERROR: OPCIÓN FUERA DEL RANGO\PYGZdq{}}\PYG{p}{)}
+
+	\PYG{n+nb}{input}\PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{MAGENTA} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}Presione ENTER para continuar\PYGZdq{}}\PYG{p}{)}
+	\PYG{k}{return} \PYG{k+kc}{True}  \PYG{c+c1}{\PYGZsh{} continuar el bucle}
+    
+\end{Verbatim}

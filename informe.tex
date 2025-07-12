@@ -39,10 +39,12 @@
 % Índice
 \tableofcontents
 \newpage
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introducción}
 
-Con el objetivo de realizar un inventario de productos con persistencia de información, se desarrollo un programa escrito en python que cumple los siguientes requisitos:
+Con el objetivo de realizar un inventario de productos con persistencia de información, se desarrollo 2 versiones del programa escritos en python, uno con persistencia en archivo CSV y otro manejando una base de datos con SQL. \\
+
+Los requisitos de CSV son:
 
 \begin{enumerate}
 	\item Usar listas para almacenar y gestionar los datos.
@@ -51,14 +53,19 @@ Con el objetivo de realizar un inventario de productos con persistencia de infor
 	\item Utilizar condicionales para gestionar las opciones del menú y las validaciones necesarias.
 	\item Presentar un menú que permita elegir entre las funcionalidades disponibles: agregar productos, visualizar productos, buscar productos y eliminar productos.
 	\item El programa debe continuar funcionando hasta que se elija una opción para salir.
-	\item El programa persiste la información en un archivo del disco rígido.
+	\item El programa persiste la información en un archivo del disco rígido el tipo CSV.
 \end{enumerate}
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Implementación}
+
+\subsection{Implementación CSV}
 
 Utilizo la función main como función principal del programa, el cual muestra un menu con opciones al usuario, y según la opcion elegida realiza alguno de los requisitos solicitados.
 
-Para correr el programa desde una terminal ubicada donde se encuentran los archivos de python y el archivo makefile ingresar \textit{make}, como muesta la \autoref{fig:Correr el programa}
+Para ejecutar el programa desde una terminal ubicada donde se encuentran los \textbf{archivos python} y el \textbf{archivo makefile} ingresar \textit{make} o \textit{make run}, como muesta la \autoref{fig:Correr el programa}
 
 \begin{figure}[H]
 	\centering
@@ -127,9 +134,11 @@ Finalmente para finalizar el programa se ingresa la opción $5$, y se muestra po
 	\label{fig:fin programa}
 \end{figure} 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Pruebas}
 
-\subsection{Opción fuera del rango}
+\subsection{Pruebas CSV}
+\subsubsection{Opción fuera del rango}
 
 Como se observa en la \autoref{fig:error rango de opciones}, al ingresar opciones fuera de las opciones del menu 
 el programa evita que se ejecuten.
@@ -152,7 +161,7 @@ el programa evita que se ejecuten.
     \label{fig:error rango de opciones}
 \end{figure}
 
-\subsection{Campos del producto}
+\subsubsection{Campos del producto}
 
 Como se observa en la \autoref{fig:error en campos de producto}, al ingresar campos vacios del nombre o categoria del producto o bien si se 
 ingresa valores negativos o reales al precio del producto, el sistema no permite continuar con la ejecución del programa.
@@ -165,7 +174,7 @@ ingresa valores negativos o reales al precio del producto, el sistema no permite
 	\label{fig:error en campos de producto}
 \end{figure} 
 
-\subsection{Busqueda de producto por nombre}
+\subsubsection{Busqueda de producto por nombre}
 
 Al ingresar varios productos, se guardan en la lista en forma ordenada alfabeticamente por nombre. Cuando se busca un nombre de un producto
 se genera una sublista con las coincidencias y se muestra por la terminal en caso en encontrar como se muestra en la \autoref{fig:busqueda de producto}, sino muestra un mensaje que el producto no esta en el inventario.
@@ -189,7 +198,7 @@ se genera una sublista con las coincidencias y se muestra por la terminal en cas
     \label{fig:busqueda de producto}
 \end{figure}
 
-\subsection{Eliminación de producto por posición}
+\subsubsection{Eliminación de producto por posición}
 
 Como se muestra en la \autoref{fig:eliminacion de producto}, en la terminal se observan los productos que hay en el inventario, junto a un numero, para eliminar por ejemplo naranja, se ingresa su posición en la lista mostrada que es $3$, luego se vuelve a mostrar los productos y se observa que fue eliminado del inventario.
 \begin{figure}[H]
@@ -211,24 +220,29 @@ Como se muestra en la \autoref{fig:eliminacion de producto}, en la terminal se o
     \label{fig:eliminacion de producto}
 \end{figure}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Código}
+\subsection{Código - CSV = Comma-Separated Values(Valores Separados por Coma)}
 
-\subsection{makefile}
-\inputminted[fontsize=\small]{make}{Codigo/makefile}
+\subsubsection{makefile}
+\inputminted[fontsize=\small]{make}{CodigoCSV/makefile}
 
-\subsection{main.py}
-\inputminted[fontsize=\small, breaklines=true]{python}{Codigo/main.py}
+\subsubsection{main.py}
+\inputminted[fontsize=\small, breaklines=true]{python}{CodigoCSV/main.py}
 
-\subsection{menu.py}
-\inputminted[fontsize=\small, breaklines=true]{python}{Codigo/menu.py}
+\subsubsection{menu.py}
+\inputminted[fontsize=\small, breaklines=true]{python}{CodigoCSV/menu.py}
 
-\subsection{opciones.py}
-\inputminted[fontsize=\small, breaklines=true]{python}{Codigo/opciones.py}
+\subsubsection{opciones.py}
+\inputminted[fontsize=\small, breaklines=true]{python}{CodigoCSV/opciones.py}
 
-\subsection{metodos\_productos.py}
-\inputminted[fontsize=\small, breaklines=true]{python}{Codigo/metodos_productos.py}
+\subsubsection{metodos\_productos.py}
+\inputminted[fontsize=\small, breaklines=true]{python}{CodigoCSV/metodos_productos.py}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Código - SQL = Structured Query Language(Lenguaje de Consulta Estructurado)}
 
+Aún no se vio en clases.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusión}
 
 En este informe realizado al combinar \LaTeX y Python se presenta una simplificación del programa inventario, donde se pudo aplicar lo aprendido en clases, como listas, condicionales, bucles, ademas se uso modulacion y funciones, además de el uso de la función main y un makefile para ejecutar de un forma más práctica el código.
