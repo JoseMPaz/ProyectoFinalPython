@@ -1,0 +1,83 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{sqlite3}
+
+\PYG{k}{def} \PYG{n+nf}{crear\PYGZus{}base} \PYG{p}{():}
+    \PYG{n}{conexion} \PYG{o}{=} \PYG{n}{sqlite3}\PYG{o}{.}\PYG{n}{connect} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}inventario.db\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{cursor} \PYG{o}{=} \PYG{n}{conexion}\PYG{o}{.}\PYG{n}{cursor} \PYG{p}{()}
+    \PYG{n}{cursor}\PYG{o}{.}\PYG{n}{execute}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+s2}{        CREATE TABLE IF NOT EXISTS productos (}
+\PYG{l+s+s2}{            id INTEGER PRIMARY KEY AUTOINCREMENT,}
+\PYG{l+s+s2}{            nombre TEXT NOT NULL,}
+\PYG{l+s+s2}{            descripcion TEXT,}
+\PYG{l+s+s2}{            cantidad INTEGER NOT NULL,}
+\PYG{l+s+s2}{            precio REAL NOT NULL,}
+\PYG{l+s+s2}{            categoria TEXT}
+\PYG{l+s+s2}{        )}
+\PYG{l+s+s2}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{conexion}\PYG{o}{.}\PYG{n}{commit} \PYG{p}{()}
+    \PYG{n}{conexion}\PYG{o}{.}\PYG{n}{close} \PYG{p}{()}
+
+\PYG{k}{def} \PYG{n+nf}{agregar} \PYG{p}{(}\PYG{n}{nombre}\PYG{p}{,} \PYG{n}{descripcion}\PYG{p}{,} \PYG{n}{cantidad}\PYG{p}{,} \PYG{n}{precio}\PYG{p}{,} \PYG{n}{categoria}\PYG{p}{):}
+    \PYG{n}{conexion} \PYG{o}{=} \PYG{n}{sqlite3}\PYG{o}{.}\PYG{n}{connect} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}inventario.db\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{cursor} \PYG{o}{=} \PYG{n}{conexion}\PYG{o}{.}\PYG{n}{cursor} \PYG{p}{()}
+    \PYG{n}{cursor}\PYG{o}{.}\PYG{n}{execute} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}INSERT INTO productos (nombre, descripcion, cantidad, precio, categoria) VALUES (?, ?, ?, ?, ?)\PYGZdq{}}\PYG{p}{,}
+              \PYG{p}{(}\PYG{n}{nombre}\PYG{p}{,} \PYG{n}{descripcion}\PYG{p}{,} \PYG{n}{cantidad}\PYG{p}{,} \PYG{n}{precio}\PYG{p}{,} \PYG{n}{categoria}\PYG{p}{))}
+    \PYG{n}{conexion}\PYG{o}{.}\PYG{n}{commit} \PYG{p}{()}
+    \PYG{n}{conexion}\PYG{o}{.}\PYG{n}{close} \PYG{p}{()}
+
+\PYG{k}{def} \PYG{n+nf}{listar} \PYG{p}{():}
+    \PYG{n}{conexion} \PYG{o}{=} \PYG{n}{sqlite3}\PYG{o}{.}\PYG{n}{connect} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}inventario.db\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{cursor} \PYG{o}{=} \PYG{n}{conexion}\PYG{o}{.}\PYG{n}{cursor} \PYG{p}{()}
+    \PYG{n}{cursor}\PYG{o}{.}\PYG{n}{execute} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}SELECT * FROM productos\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{productos} \PYG{o}{=} \PYG{n}{cursor}\PYG{o}{.}\PYG{n}{fetchall} \PYG{p}{()}
+    \PYG{n}{conexion}\PYG{o}{.}\PYG{n}{close} \PYG{p}{()}
+    \PYG{k}{return} \PYG{n}{productos}
+
+\PYG{k}{def} \PYG{n+nf}{buscar\PYGZus{}por\PYGZus{}id} \PYG{p}{(}\PYG{n}{identificador}\PYG{p}{):}
+    \PYG{n}{conexion} \PYG{o}{=} \PYG{n}{sqlite3}\PYG{o}{.}\PYG{n}{connect} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}inventario.db\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{cursor} \PYG{o}{=} \PYG{n}{conexion}\PYG{o}{.}\PYG{n}{cursor} \PYG{p}{()}
+    \PYG{n}{cursor}\PYG{o}{.}\PYG{n}{execute}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}SELECT * FROM productos WHERE id=?\PYGZdq{}}\PYG{p}{,} \PYG{p}{(}\PYG{n}{identificador}\PYG{p}{,))}
+    \PYG{n}{producto} \PYG{o}{=} \PYG{n}{cursor}\PYG{o}{.}\PYG{n}{fetchone} \PYG{p}{()}
+    \PYG{n}{conexion}\PYG{o}{.}\PYG{n}{close} \PYG{p}{()}
+    \PYG{k}{return} \PYG{n}{producto}
+
+\PYG{k}{def} \PYG{n+nf}{actualizar} \PYG{p}{(}\PYG{n}{identificador}\PYG{p}{,} \PYG{n}{nombre}\PYG{p}{,} \PYG{n}{descripcion}\PYG{p}{,} \PYG{n}{cantidad}\PYG{p}{,} \PYG{n}{precio}\PYG{p}{,} \PYG{n}{categoria}\PYG{p}{):}
+    \PYG{n}{conexion} \PYG{o}{=} \PYG{n}{sqlite3}\PYG{o}{.}\PYG{n}{connect} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}inventario.db\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{cursor} \PYG{o}{=} \PYG{n}{conexion}\PYG{o}{.}\PYG{n}{cursor} \PYG{p}{()}
+    \PYG{n}{cursor}\PYG{o}{.}\PYG{n}{execute} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}\PYGZdq{}UPDATE productos SET nombre=?, descripcion=?, cantidad=?, precio=?, categoria=? WHERE id=?\PYGZdq{}\PYGZdq{}\PYGZdq{}}\PYG{p}{,}
+              \PYG{p}{(}\PYG{n}{nombre}\PYG{p}{,} \PYG{n}{descripcion}\PYG{p}{,} \PYG{n}{cantidad}\PYG{p}{,} \PYG{n}{precio}\PYG{p}{,} \PYG{n}{categoria}\PYG{p}{,} \PYG{n}{identificador}\PYG{p}{))}
+    \PYG{n}{conexion}\PYG{o}{.}\PYG{n}{commit} \PYG{p}{()}
+    \PYG{n}{conexion}\PYG{o}{.}\PYG{n}{close} \PYG{p}{()}
+
+\PYG{k}{def} \PYG{n+nf}{eliminar} \PYG{p}{(}\PYG{n}{identificador}\PYG{p}{):}
+    \PYG{n}{conexion} \PYG{o}{=} \PYG{n}{sqlite3}\PYG{o}{.}\PYG{n}{connect} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}inventario.db\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{cursor} \PYG{o}{=} \PYG{n}{conexion}\PYG{o}{.}\PYG{n}{cursor} \PYG{p}{()}
+    \PYG{n}{cursor}\PYG{o}{.}\PYG{n}{execute} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}DELETE FROM productos WHERE id=?\PYGZdq{}}\PYG{p}{,} \PYG{p}{(}\PYG{n}{identificador}\PYG{p}{,))}
+    \PYG{n}{conexion}\PYG{o}{.}\PYG{n}{commit} \PYG{p}{()}
+    \PYG{n}{conexion}\PYG{o}{.}\PYG{n}{close} \PYG{p}{()}
+
+\PYG{k}{def} \PYG{n+nf}{buscar\PYGZus{}por\PYGZus{}nombre} \PYG{p}{(}\PYG{n}{nombre}\PYG{p}{):}
+    \PYG{n}{conexion} \PYG{o}{=} \PYG{n}{sqlite3}\PYG{o}{.}\PYG{n}{connect} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}inventario.db\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{cursor} \PYG{o}{=} \PYG{n}{conexion}\PYG{o}{.}\PYG{n}{cursor} \PYG{p}{()}
+    \PYG{n}{cursor}\PYG{o}{.}\PYG{n}{execute} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}SELECT * FROM productos WHERE nombre LIKE ?\PYGZdq{}}\PYG{p}{,} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZpc{}\PYGZsq{}} \PYG{o}{+} \PYG{n}{nombre} \PYG{o}{+} \PYG{l+s+s1}{\PYGZsq{}\PYGZpc{}\PYGZsq{}}\PYG{p}{,))}
+    \PYG{n}{productos} \PYG{o}{=} \PYG{n}{cursor}\PYG{o}{.}\PYG{n}{fetchall} \PYG{p}{()}
+    \PYG{n}{conexion}\PYG{o}{.}\PYG{n}{close} \PYG{p}{()}
+    \PYG{k}{return} \PYG{n}{productos}
+
+\PYG{k}{def} \PYG{n+nf}{buscar\PYGZus{}por\PYGZus{}categoria} \PYG{p}{(}\PYG{n}{categoria}\PYG{p}{):}
+    \PYG{n}{conexion} \PYG{o}{=} \PYG{n}{sqlite3}\PYG{o}{.}\PYG{n}{connect} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}inventario.db\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{cursor} \PYG{o}{=} \PYG{n}{conexion}\PYG{o}{.}\PYG{n}{cursor} \PYG{p}{()}
+    \PYG{n}{cursor}\PYG{o}{.}\PYG{n}{execute} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}SELECT * FROM productos WHERE categoria LIKE ?\PYGZdq{}}\PYG{p}{,} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZpc{}\PYGZsq{}} \PYG{o}{+} \PYG{n}{categoria} \PYG{o}{+} \PYG{l+s+s1}{\PYGZsq{}\PYGZpc{}\PYGZsq{}}\PYG{p}{,))}
+    \PYG{n}{productos} \PYG{o}{=} \PYG{n}{cursor}\PYG{o}{.}\PYG{n}{fetchall} \PYG{p}{()}
+    \PYG{n}{conexion}\PYG{o}{.}\PYG{n}{close} \PYG{p}{()}
+    \PYG{k}{return} \PYG{n}{productos}
+
+\PYG{k}{def} \PYG{n+nf}{stock\PYGZus{}bajo} \PYG{p}{(}\PYG{n}{cantidad\PYGZus{}maxima}\PYG{p}{):}
+    \PYG{n}{conexion} \PYG{o}{=} \PYG{n}{sqlite3}\PYG{o}{.}\PYG{n}{connect} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}inventario.db\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{cursor} \PYG{o}{=} \PYG{n}{conexion}\PYG{o}{.}\PYG{n}{cursor} \PYG{p}{()}
+    \PYG{n}{cursor}\PYG{o}{.}\PYG{n}{execute} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}SELECT * FROM productos WHERE cantidad \PYGZlt{}= ?\PYGZdq{}}\PYG{p}{,} \PYG{p}{(}\PYG{n}{cantidad\PYGZus{}maxima}\PYG{p}{,))}
+    \PYG{n}{productos} \PYG{o}{=} \PYG{n}{cursor}\PYG{o}{.}\PYG{n}{fetchall} \PYG{p}{()}
+    \PYG{n}{conexion}\PYG{o}{.}\PYG{n}{close} \PYG{p}{()}
+    \PYG{k}{return} \PYG{n}{productos}
+    
+\end{Verbatim}

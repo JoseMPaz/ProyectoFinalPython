@@ -1,9 +1,9 @@
 import sqlite3
 
-def crear_base():
-    conn = sqlite3.connect("inventario.db")
-    c = conn.cursor()
-    c.execute("""
+def crear_base ():
+    conexion = sqlite3.connect ("inventario.db")
+    cursor = conexion.cursor ()
+    cursor.execute("""
         CREATE TABLE IF NOT EXISTS productos (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nombre TEXT NOT NULL,
@@ -13,68 +13,69 @@ def crear_base():
             categoria TEXT
         )
     """)
-    conn.commit()
-    conn.close()
+    conexion.commit ()
+    conexion.close ()
 
-def agregar(nombre, descripcion, cantidad, precio, categoria):
-    conn = sqlite3.connect("inventario.db")
-    c = conn.cursor()
-    c.execute("INSERT INTO productos (nombre, descripcion, cantidad, precio, categoria) VALUES (?, ?, ?, ?, ?)",
+def agregar (nombre, descripcion, cantidad, precio, categoria):
+    conexion = sqlite3.connect ("inventario.db")
+    cursor = conexion.cursor ()
+    cursor.execute ("INSERT INTO productos (nombre, descripcion, cantidad, precio, categoria) VALUES (?, ?, ?, ?, ?)",
               (nombre, descripcion, cantidad, precio, categoria))
-    conn.commit()
-    conn.close()
+    conexion.commit ()
+    conexion.close ()
 
-def listar():
-    conn = sqlite3.connect("inventario.db")
-    c = conn.cursor()
-    c.execute("SELECT * FROM productos")
-    datos = c.fetchall()
-    conn.close()
-    return datos
+def listar ():
+    conexion = sqlite3.connect ("inventario.db")
+    cursor = conexion.cursor ()
+    cursor.execute ("SELECT * FROM productos")
+    productos = cursor.fetchall ()
+    conexion.close ()
+    return productos
 
-def buscar_por_id(pid):
-    conn = sqlite3.connect("inventario.db")
-    c = conn.cursor()
-    c.execute("SELECT * FROM productos WHERE id=?", (pid,))
-    dato = c.fetchone()
-    conn.close()
-    return dato
+def buscar_por_id (identificador):
+    conexion = sqlite3.connect ("inventario.db")
+    cursor = conexion.cursor ()
+    cursor.execute("SELECT * FROM productos WHERE id=?", (identificador,))
+    producto = cursor.fetchone ()
+    conexion.close ()
+    return producto
 
-def actualizar(pid, nombre, descripcion, cantidad, precio, categoria):
-    conn = sqlite3.connect("inventario.db")
-    c = conn.cursor()
-    c.execute("""UPDATE productos SET nombre=?, descripcion=?, cantidad=?, precio=?, categoria=? WHERE id=?""",
-              (nombre, descripcion, cantidad, precio, categoria, pid))
-    conn.commit()
-    conn.close()
+def actualizar (identificador, nombre, descripcion, cantidad, precio, categoria):
+    conexion = sqlite3.connect ("inventario.db")
+    cursor = conexion.cursor ()
+    cursor.execute ("""UPDATE productos SET nombre=?, descripcion=?, cantidad=?, precio=?, categoria=? WHERE id=?""",
+              (nombre, descripcion, cantidad, precio, categoria, identificador))
+    conexion.commit ()
+    conexion.close ()
 
-def eliminar(pid):
-    conn = sqlite3.connect("inventario.db")
-    c = conn.cursor()
-    c.execute("DELETE FROM productos WHERE id=?", (pid,))
-    conn.commit()
-    conn.close()
+def eliminar (identificador):
+    conexion = sqlite3.connect ("inventario.db")
+    cursor = conexion.cursor ()
+    cursor.execute ("DELETE FROM productos WHERE id=?", (identificador,))
+    conexion.commit ()
+    conexion.close ()
 
-def buscar_por_nombre(nombre):
-    conn = sqlite3.connect("inventario.db")
-    c = conn.cursor()
-    c.execute("SELECT * FROM productos WHERE nombre LIKE ?", ('%' + nombre + '%',))
-    datos = c.fetchall()
-    conn.close()
-    return datos
+def buscar_por_nombre (nombre):
+    conexion = sqlite3.connect ("inventario.db")
+    cursor = conexion.cursor ()
+    cursor.execute ("SELECT * FROM productos WHERE nombre LIKE ?", ('%' + nombre + '%',))
+    productos = cursor.fetchall ()
+    conexion.close ()
+    return productos
 
-def buscar_por_categoria(cat):
-    conn = sqlite3.connect("inventario.db")
-    c = conn.cursor()
-    c.execute("SELECT * FROM productos WHERE categoria LIKE ?", ('%' + cat + '%',))
-    datos = c.fetchall()
-    conn.close()
-    return datos
+def buscar_por_categoria (categoria):
+    conexion = sqlite3.connect ("inventario.db")
+    cursor = conexion.cursor ()
+    cursor.execute ("SELECT * FROM productos WHERE categoria LIKE ?", ('%' + categoria + '%',))
+    productos = cursor.fetchall ()
+    conexion.close ()
+    return productos
 
-def stock_bajo(limite):
-    conn = sqlite3.connect("inventario.db")
-    c = conn.cursor()
-    c.execute("SELECT * FROM productos WHERE cantidad <= ?", (limite,))
-    datos = c.fetchall()
-    conn.close()
-    return datos
+def stock_bajo (cantidad_maxima):
+    conexion = sqlite3.connect ("inventario.db")
+    cursor = conexion.cursor ()
+    cursor.execute ("SELECT * FROM productos WHERE cantidad <= ?", (cantidad_maxima,))
+    productos = cursor.fetchall ()
+    conexion.close ()
+    return productos
+    

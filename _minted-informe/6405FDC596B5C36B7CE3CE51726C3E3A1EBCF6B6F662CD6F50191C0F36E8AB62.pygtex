@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{productos} \PYG{k+kn}{import} \PYG{n}{crear\PYGZus{}base}
+\PYG{k+kn}{from} \PYG{n+nn}{menu} \PYG{k+kn}{import} \PYG{n}{mostrar\PYGZus{}menu}\PYG{p}{,} \PYG{n}{ejecutar\PYGZus{}opcion}\PYG{p}{,} \PYG{n}{limpiar\PYGZus{}pantalla}
+\PYG{k+kn}{from} \PYG{n+nn}{colorama} \PYG{k+kn}{import} \PYG{n}{Fore}\PYG{p}{,} \PYG{n}{Style}\PYG{p}{,} \PYG{n}{init}
+
+\PYG{k}{def} \PYG{n+nf}{main}\PYG{p}{():}
+    \PYG{n}{crear\PYGZus{}base}\PYG{p}{()}
+    \PYG{k}{while} \PYG{k+kc}{True}\PYG{p}{:}
+        \PYG{n}{limpiar\PYGZus{}pantalla} \PYG{p}{()}
+        \PYG{n}{mostrar\PYGZus{}menu} \PYG{p}{()}
+        \PYG{n}{opcion} \PYG{o}{=} \PYG{n+nb}{input} \PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{BLUE} \PYG{o}{+}\PYG{l+s+s2}{\PYGZdq{}Selecciona una opción: \PYGZdq{}}\PYG{p}{)}
+        \PYG{n}{limpiar\PYGZus{}pantalla} \PYG{p}{()}
+        \PYG{n}{ejecutar\PYGZus{}opcion} \PYG{p}{(}\PYG{n}{opcion}\PYG{p}{)}
+        \PYG{n+nb}{input} \PYG{p}{(}\PYG{n}{Fore}\PYG{o}{.}\PYG{n}{MAGENTA} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}Presione ENTER para continuar\PYGZdq{}}\PYG{p}{)}
+
+\PYG{k}{if} \PYG{n+nv+vm}{\PYGZus{}\PYGZus{}name\PYGZus{}\PYGZus{}} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}\PYGZus{}\PYGZus{}main\PYGZus{}\PYGZus{}\PYGZdq{}}\PYG{p}{:}
+    \PYG{n}{main}\PYG{p}{()}
+\end{Verbatim}

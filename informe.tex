@@ -44,9 +44,8 @@
 
 Con el objetivo de realizar un inventario de productos con persistencia de información, se desarrollo 2 versiones del programa escritos en python, uno con persistencia en archivo CSV y otro manejando una base de datos con SQL. \\
 
-Los requisitos de CSV son:
-
-\begin{enumerate}
+\textbf{Los requisitos con CSV son:}
+\begin{itemize}
 	\item Usar listas para almacenar y gestionar los datos.
 	\item Incorporar bucles while y for según corresponda. 
 	\item Validar entradas del usuario o usuaria, asegurándote de que no se ingresen datos vacíos o incorrectos.
@@ -54,10 +53,30 @@ Los requisitos de CSV son:
 	\item Presentar un menú que permita elegir entre las funcionalidades disponibles: agregar productos, visualizar productos, buscar productos y eliminar productos.
 	\item El programa debe continuar funcionando hasta que se elija una opción para salir.
 	\item El programa persiste la información en un archivo del disco rígido el tipo CSV.
-\end{enumerate}
+\end{itemize}
 
+\textbf{Los requisitos con SQL son:}\\
 
+Se debe crear una base de datos llamada \textbf{inventario.db} para almacenar los datos de los productos. La \textit{tabla productos} debe contener las siguientes columnas:
 
+\begin{itemize}
+	\item \textbf{id:} Identificador único del producto (clave primaria, autoincremental).
+	\item \textbf{nombre:}Nombre del producto (texto, no nulo).
+	\item \textbf{descripcion:} Breve descripción del producto (texto).
+	\item \textbf{cantidad:} Cantidad disponible del producto (entero, no nulo).
+	\item \textbf{precio:} Precio del producto (real, no nulo).
+	\item \textbf{categoria:} Categoría a la que pertenece el producto (texto).
+\end{itemize}
+
+\textbf{Las funcionalidades con SQL son:}\\
+\begin{itemize}
+	\item Registrar nuevos productos.
+	\item Visualizar datos de los productos registrados.
+	\item Actualizar datos de productos, mediante su ID.
+	\item Eliminación de productos, mediante su ID.
+	\item Búsqueda de productos, mediante su ID. De manera opcional, se puede implementar la búsqueda por los campos nombre o categoría.
+	\item Reporte de productos que tengan una cantidad igual o inferior a un límite especificado por el usuario o usuaria.
+\end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Implementación}
 
@@ -65,14 +84,14 @@ Los requisitos de CSV son:
 
 Utilizo la función main como función principal del programa, el cual muestra un menu con opciones al usuario, y según la opcion elegida realiza alguno de los requisitos solicitados.
 
-Para ejecutar el programa desde una terminal ubicada donde se encuentran los \textbf{archivos python} y el \textbf{archivo makefile} ingresar \textit{make} o \textit{make run}, como muesta la \autoref{fig:Correr el programa}
+Para ejecutar el programa desde una terminal ubicada donde se encuentran los \textbf{archivos python} y el \textbf{archivo makefile} ingresar la instrucción \textbf{make} o bien \textbf{make run}, como muesta la \autoref{fig:make}.
 
 \begin{figure}[H]
 	\centering
 	\setlength{\fboxrule}{0pt}
-	\includegraphics[width=0.66\textwidth]{Imagenes/img0.png}
-	\caption{Como correr el programa desde terminal}
-	\label{fig:Correr el programa}
+	\includegraphics[width=0.8\textwidth]{Imagenes/make.png}
+	\caption{Ejecución con make}
+	\label{fig:make}
 \end{figure}  
 
 Al iniciar el programa, si no hay un archivo CSV se inicializa la lista de productos como vacia, caso contrario se carga la lista de productos con los productos del archivo CSV.\\
@@ -82,7 +101,7 @@ El programa refresca la terminal y muestra un menu con opciones, se le solicita 
 \begin{figure}[H]
 	\centering
 	\setlength{\fboxrule}{0pt}
-	\includegraphics[width=0.35\textwidth]{Imagenes/menu.png}
+	\includegraphics[width=0.3\textwidth]{Imagenes/menu.png}
 	\caption{Mostrando el menu}
 	\label{fig:menu}
 \end{figure} 
@@ -142,13 +161,132 @@ Además se muestra el archivo CSV que actua como base de datos, como se observa 
 	\centering
 	\setlength{\fboxrule}{0pt}
 	\includegraphics[width=0.3\textwidth]{Imagenes/archivo_csv.png}
-	\caption{Archivo CSV}
+	\caption{Contenido de archivo CSV}
 	\label{fig:archivo_csv}
 \end{figure} 
 
 
 \subsection{Implementación SQL}
-Aún no se vio el tema.
+
+El programa puede implementar con la instrucción \textbf{make} o bien \textbf{make run} como se muestra en la \autoref{fig:make_run}.
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{0pt}
+	\includegraphics[width=0.7\textwidth]{Imagenes/make_run.png}
+	\caption{Ejecución con make run}
+	\label{fig:make_run}
+\end{figure}  
+
+La terminal se refresca y muestra un menú de opciones como se observa en la \autoref{fig:menu_sql}.
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{0pt}
+	\includegraphics[width=0.3\textwidth]{Imagenes/menu_sql.png}
+	\caption{Menú con SQL}
+	\label{fig:menu_sql}
+\end{figure} 
+
+Al ingresar la opción $1$, se solicita el nombre, descripción, cantidad, precio y categoria del \textbf{nuevo producto} para almacenarlo en la base de datos SQL, como se muentra en la \autoref{fig:nuevo_producto_sql}.
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{0pt}
+	\includegraphics[width=0.5\textwidth]{Imagenes/nuevo_producto_sql.png}
+	\caption{Nuevo Producto con SQL}
+	\label{fig:nuevo_producto_sql}
+\end{figure} 
+
+Posteriormente al ingresar la opción $2$, a partir de consltas a la base de datos, se muestran los productos como se observa en la \autoref{fig:lita_producto_sql}.
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{0pt}
+	\includegraphics[width=0.5\textwidth]{Imagenes/lista_productos_sql.png}
+	\caption{Lista de Productos con SQL}
+	\label{fig:lita_producto_sql}
+\end{figure} 
+
+Con la opción $3$ se puede modificar campos en el producto, si no se modifica un campo se debe ingresar \textbf{enter}, como se muesta en la \autoref{fig:actualizar_producto_sql}.
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{0pt}
+	\includegraphics[width=0.7\textwidth]{Imagenes/actualizar_producto_sql.png}
+	\caption{Actualizar Producto con SQL}
+	\label{fig:actualizar_producto_sql}
+\end{figure} 
+
+Con la opción $4$ se puede eliminar un producto con su id, como se muestra en la \autoref{fig:eliminar_producto_id2_sql} y \autoref{fig:eliminar_producto_sql}.
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{0pt}
+	\includegraphics[width=0.3\textwidth]{Imagenes/eliminar_id2.png}
+	\caption{Eliminación de producto con id 2 en SQL}
+	\label{fig:eliminar_producto_id2_sql}
+\end{figure} 
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{0pt}
+	\includegraphics[width=0.7\textwidth]{Imagenes/eliminar_producto_sql.png}
+	\caption{Antes y despues de la eliminación de producto con id 2}
+	\label{fig:eliminar_producto_sql}
+\end{figure} 
+
+Con la opción $5$ se puede buscar un producto por su id, como se muestra en la \autoref{fig:busqueda_por_id}.
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{0pt}
+	\includegraphics[width=0.3\textwidth]{Imagenes/busqueda_por_id.png}
+	\caption{Busqueda de producto por ID}
+	\label{fig:busqueda_por_id}
+\end{figure} 
+
+Con la opción $6$ se puede buscar un producto por su nombre o categoría como se muestra en la \autoref{fig:busqueda_por_nombre_o_categoria}.
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{0pt}
+	\includegraphics[width=0.8\textwidth]{Imagenes/busqueda_por_nombre_o_categoria.png}
+	\caption{Busqueda de producto por nombre o categoría}
+	\label{fig:busqueda_por_nombre_o_categoria}
+\end{figure}
+
+Con la opción $7$ se puede buscar todos los productos tal que su cantidad sea inferior al indicado por teclado, como se muestra en la \autoref{fig:poco_stock}.
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{0pt}
+	\includegraphics[width=0.8\textwidth]{Imagenes/poco_stock.png}
+	\caption{Busqueda de productos con poco stock}
+	\label{fig:poco_stock}
+\end{figure}
+
+Con la opción $8$ se puede finalizar el programa como se muestra en la \autoref{fig:salir_sql}.
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{0pt}
+	\includegraphics[width=0.8\textwidth]{Imagenes/salir_sql.png}
+	\caption{Finalizar el programa}
+	\label{fig:salir_sql}
+\end{figure}
+
+Como se muetra en la \autoref{fig:contenido_archivo_sql}, el contenido del archivo sql no es facil de entender directamente.
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{0pt}
+	\includegraphics[width=0.8\textwidth]{Imagenes/contenido_archivo_sql.png}
+	\caption{Contenido de archivo SQL}
+	\label{fig:contenido_archivo_sql}
+\end{figure}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Pruebas}
 
@@ -178,6 +316,7 @@ ingresa valores no enteros al precio del producto, el sistema no permite continu
 	\caption{Pruebas al ingresar los campos del producto}
 	\label{fig:error en campos de producto}
 \end{figure} 
+
 
 \subsubsection{Busqueda de producto por nombre}
 
@@ -223,6 +362,30 @@ Como se muestra en la \autoref{fig:eliminacion de producto}, en la terminal se o
 
     \caption{Eliminación de producto por posición en el menú}
     \label{fig:eliminacion de producto}
+\end{figure}
+
+\subsection{Pruebas SQL}
+\subsubsection{Opción fuera del rango}
+
+Al ingresar en el menú de opciones un número fuera del 1 al 8, el programa muestra un mensaje de error, como se observa en la \autoref{fig:error rango de opciones sql}.
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{0pt}
+	\includegraphics[width=0.4\textwidth]{Imagenes/opcion_invalida_sql.png}
+	\caption{Error por elegir opciones fuera del rango}
+	\label{fig:error rango de opciones sql}
+\end{figure} 
+
+\subsubsection{Campos del producto}
+
+El programa valida que al menos no esten vacios el nombre, cantidad y precio de un nuevo producto, como se muestra en la \autoref{fig:error_campos_vacios}.
+
+\begin{figure}[H]
+	\centering
+	\setlength{\fboxrule}{0pt}
+	\includegraphics[width=0.4\textwidth]{Imagenes/error_campos_vacios.png}
+	\caption{Errores al intentar ingresar campos vacios}
+	\label{fig:error_campos_vacios}
 \end{figure}
 
 

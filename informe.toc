@@ -1,0 +1,27 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Introducción}{3}{section.1}%
+\contentsline {section}{\numberline {2}Implementación}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Implementación CSV}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Implementación SQL}{5}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Pruebas}{9}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Pruebas CSV}{9}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Opción fuera del rango}{9}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Campos del producto}{9}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Busqueda de producto por nombre}{10}{subsubsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.4}Eliminación de producto por posición}{10}{subsubsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.2}Pruebas SQL}{11}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Opción fuera del rango}{11}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Campos del producto}{11}{subsubsection.3.2.2}%
+\contentsline {section}{\numberline {4}Código}{12}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Código - CSV = Comma Separated Values(Valores Separados por Coma)}{12}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}makefile}{12}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}main.py}{12}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}menu.py}{13}{subsubsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.4}opciones.py}{14}{subsubsection.4.1.4}%
+\contentsline {subsubsection}{\numberline {4.1.5}metodos\_productos.py}{15}{subsubsection.4.1.5}%
+\contentsline {subsection}{\numberline {4.2}Código - SQL = Structured Query Language(Lenguaje de Consulta Estructurado)}{18}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}makefile}{18}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}main.py}{18}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}menu.py}{19}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}productos.py}{22}{subsubsection.4.2.4}%
+\contentsline {section}{\numberline {5}Conclusión}{24}{section.5}%
